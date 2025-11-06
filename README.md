@@ -4,20 +4,25 @@ A CLI to manage multiple git profiles.
 
 ## Installation
 
+To install, first clone this repository, then use the local installation files for your package manager.
+
+```bash
+git clone https://github.com/henryyr/gitprofile.git
+cd gitprofile
+```
+
 ### macOS (via Homebrew)
 
 ```bash
-brew install henryyr/tap/gitprofile
+# From within the cloned repository
+brew install --formula ./Formula/gitprofile.rb
 ```
 
 ### Windows (via Scoop)
 
 ```bash
-# Add the bucket first (only needs to be done once)
-scoop bucket add henryyr https://github.com/henryyr/scoop-bucket.git
-
-# Then install the app
-scoop install gitprofile
+# From within the cloned repository
+scoop install ./scoop/gitprofile.json
 ```
 
 ### Linux (via .deb/.rpm)
@@ -25,11 +30,13 @@ scoop install gitprofile
 Download the appropriate `.deb` or `.rpm` package from the [latest release page](https://github.com/henryyr/gitprofile/releases/latest) and install with your local package manager.
 
 **For Debian/Ubuntu:**
+
 ```bash
 sudo dpkg -i gitprofile_*.deb
 ```
 
 **For Fedora/CentOS:**
+
 ```bash
 sudo rpm -i gitprofile_*.rpm
 ```

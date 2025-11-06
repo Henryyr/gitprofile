@@ -20,25 +20,32 @@ archives:
     builds:
       - gitprofile
 
-# macOS and Linux
+# This configuration will publish the formula to a 'Formula' directory
+# in this same repository.
 brews:
   - name: gitprofile
-    tap:
+    # This makes GoReleaser push to the main repo.
+    repository:
       owner: henryyr
-      name: homebrew-tap
+      name: gitprofile
+      # We use a token to allow pushing to the repo.
+      token: "{{ .Env.GITHUB_TOKEN }}"
     commit_author:
       name: goreleaserbot
       email: bot@goreleaser.com
     homepage: "https://github.com/henryyr/gitprofile"
-    description: "A CLI to manage multiple git profiles."
+    description: "A CLI to manage multiple git profiles"
     license: "Apache-2.0"
 
-# Windows
+# This configuration will publish the manifest to a 'scoop' directory
+# in this same repository.
 scoop:
   name: gitprofile
-  bucket:
+  # This makes GoReleaser push to the main repo.
+  repository:
     owner: henryyr
-    name: scoop-bucket
+    name: gitprofile
+    token: "{{ .Env.GITHUB_TOKEN }}"
   commit_author:
     name: goreleaserbot
     email: bot@goreleaser.com
@@ -46,7 +53,7 @@ scoop:
   description: "A CLI to manage multiple git profiles."
   license: "Apache-2.0"
 
-# Linux
+# Linux packages are unaffected and will be attached to the release.
 nfpms:
   - id: gitprofile-nfpms
     package_name: gitprofile
