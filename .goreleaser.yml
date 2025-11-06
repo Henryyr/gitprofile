@@ -1,0 +1,61 @@
+# .goreleaser.yml
+project_name: gitprofile
+
+builds:
+  - id: gitprofile
+    main: ./
+    binary: gitprofile
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+
+archives:
+  - id: gitprofile
+    builds:
+      - gitprofile
+
+# macOS and Linux
+brews:
+  - name: gitprofile
+    tap:
+      owner: henryyr
+      name: homebrew-tap
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    homepage: "https://github.com/henryyr/gitprofile"
+    description: "A CLI to manage multiple git profiles."
+    license: "Apache-2.0"
+
+# Windows
+scoop:
+  name: gitprofile
+  bucket:
+    owner: henryyr
+    name: scoop-bucket
+  commit_author:
+    name: goreleaserbot
+    email: bot@goreleaser.com
+  homepage: "https://github.com/henryyr/gitprofile"
+  description: "A CLI to manage multiple git profiles."
+  license: "Apache-2.0"
+
+# Linux
+nfpms:
+  - id: gitprofile-nfpms
+    package_name: gitprofile
+    formats:
+      - deb
+      - rpm
+    vendor: henryyr
+    homepage: "https://github.com/henryyr/gitprofile"
+    maintainer: "henryyr <henry.360420@gmail.com>"
+    description: "A CLI to manage multiple git profiles."
+    license: "Apache-2.0"
+    bindir: /usr/local/bin
